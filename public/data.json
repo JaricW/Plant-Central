@@ -1,0 +1,100 @@
+{
+  "plants": [
+    {
+      "id": 1,
+      "name": "Swiss Cheese",
+      "size": "small",
+      "price": 7,
+      "description": "Great introductory plant for novices, easy to care for. Great for creating a relaxed environment.",
+      "img": "https://cdn.shopify.com/s/files/1/1780/8157/products/Monstera_YinYang_19cb5b4f-097c-4eaf-a224-c51e75b2f750_1024x1024@2x.jpg?v=1607963454"
+    },
+    {
+      "id": 2,
+      "name": "Money Tree",
+      "size": "small",
+      "price": 9,
+      "description": "A hardy mini tree that you don't have to worry too much about as the trunk holds water.",
+      "img": "https://cdn.shopify.com/s/files/1/1780/8157/products/TroikaWhiteM_MoneyTree_1024x1024@2x.jpg?v=1612978497"
+    },
+    {
+      "id": 3,
+      "name": "Dragon tree",
+      "size": "medium",
+      "price": 22,
+      "description": "A full leafy tree that can grow up to 2m tall indoors. Bends as it grows creating a calming canopy. ",
+      "img": "https://cdn.shopify.com/s/files/1/1780/8157/products/Dracaena-Warneckii-Stack_1024x1024@2x.jpg?v=1601994587"
+    },
+    {
+      "id": 4,
+      "name": "Snake Plant",
+      "size": "medium",
+      "price": 21,
+      "description": "Super tough, easy to care for and the best air purifying plant you can own. Can grow up to 1m tall.",
+      "img": "https://cdn.shopify.com/s/files/1/1780/8157/products/MotherInLaw_Zeylanica_1024x1024@2x.jpg?v=1556807499"
+    },
+    {
+      "id": 5,
+      "name": "Golden Pothos",
+      "size": "large",
+      "price": 35,
+      "description": "Lovely heart-shaped leaves make this plant a winner in the looks department and it is also a great air purifier.",
+      "img": "https://cdn.shopify.com/s/files/1/1780/8157/products/Pothos_Golden_Mosspole_1024x1024@2x.jpg?v=1556817285"
+    },
+    {
+      "id": 6,
+      "name": "Ponytail palm",
+      "size": "large",
+      "price": 40,
+      "description": "A unique-looking plant is easy to care for and even thrives on a bit of neglect as it can withstand drought and loves bright light.",
+      "img": "https://cdn.shopify.com/s/files/1/1780/8157/products/Ponytail-17cm-lights-merry_1024x1024@2x.jpg?v=1605876827"
+    },
+    {
+      "id": 7,
+      "name": "Pygmy Pineapple",
+      "size": "small",
+      "price": 26,
+      "description": "A great statement plant that grows a small cousin of the pineapple which you can eat but may be a little bitter.",
+      "img": "https://cdn.shopify.com/s/files/1/1780/8157/products/Pineapple_Quartz_1024x1024@2x.jpg?v=1611936611"
+    },
+    {
+      "id": 8,
+      "name": "Bird of Paradise",
+      "size": "small",
+      "price": 16,
+      "description": "A favourite of King George III cultivated to grow well indoors this plant will look great in any space.",
+      "img": "https://cdn.shopify.com/s/files/1/1780/8157/products/Strelizia_Regina_61761c43-fb2d-4925-90bd-9928e2b227f4_1024x1024@2x.jpg?v=1604314052"
+    },
+    {
+      "id": 9,
+      "name": "Sweetheart Plant",
+      "size": "medium",
+      "price": 25,
+      "description": "A vigorously growing trailing plant with a long life, put it up somewhere high to get the full effect.",
+      "img": "https://cdn.shopify.com/s/files/1/1780/8157/products/Valentines_sweetheart18cm__1_1024x1024@2x.jpg?v=1612457644"
+    },
+    {
+      "id": 10,
+      "name": "Areca Palm",
+      "size": "medium",
+      "price": 19,
+      "description": "As a thirsty plant it transpires a lot of water making it an effective humidifier so great for relieving dry skin.",
+      "img": "https://cdn.shopify.com/s/files/1/1780/8157/products/Areca-Sweetpea-pot_1_1024x1024@2x.jpg?v=1604490952"
+    },
+    {
+      "id": 11,
+      "name": "Elephant Ear",
+      "size": "large",
+      "price": 29,
+      "description": "This striking plant is a great way of adding structure to your plant collection with its multiple upright stems & crinkly leaves.",
+      "img": "https://cdn.shopify.com/s/files/1/1780/8157/products/Alocasia_Lauterbachiana_large_b67e19f3-fc29-4295-99c9-fba8bf52d9a1_1024x1024@2x.jpg?v=1572011412"
+    },
+    {
+      "id": 12,
+      "name": "Velvet Plant",
+      "size": "large",
+      "price": 37,
+      "description": "Deliciously tactile, with dark foliage that is eminently strokable. It should help you relax, restore and focus.",
+      "img": "https://cdn.shopify.com/s/files/1/1780/8157/products/Calathea-Velvet_8e2fe894-7436-4171-a7ee-3dd1a9beedb0_1024x1024@2x.jpg?v=1594914212"
+    }
+  ]
+}
