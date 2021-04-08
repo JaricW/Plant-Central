@@ -1,42 +1,34 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import NavBarStyles from "../Styles/navBarStyle";
-import {GlobalContext} from '../Context/GlobalState'
+import { GlobalContext } from "../Context/GlobalState";
 import HomeScreen from "./HomeScreen";
 import Shop from "./Shop";
+import Basket from "./Basket";
 
 const NavBar = () => {
-  const [pcStyle, setpcStyle] = useState(NavBarStyles.liStyle);
-  const [snStyle, setsnStyle] = useState(NavBarStyles.liStyle);
+  const { view, cart } = useContext(GlobalContext);
+  const [viewing, setViewing] = view;
+  const [basket, setBasket] = cart;
 
-  const [viewing, setViewing] = useContext(GlobalContext)
-
- const viewHome = () => {setViewing(<HomeScreen />)}
-  const viewShop = () => {setViewing(<Shop />)}
-
-  const pcHover = () =>
-    pcStyle === NavBarStyles.liStyle
-      ? setpcStyle(NavBarStyles.liHoverStyle)
-      : setpcStyle(NavBarStyles.liStyle);
-
-      const snHover = () =>
-    snStyle === NavBarStyles.liStyle
-      ? setsnStyle(NavBarStyles.liHoverStyle)
-      : setsnStyle(NavBarStyles.liStyle);
-
-
+  const viewHome = () => setViewing(<HomeScreen />);
+  const viewShop = () => setViewing(<Shop />);
+  const viewBasket = () => setViewing(<Basket />);
 
   return (
     <>
-    
       <section>
         <ul style={NavBarStyles.ulStyle}>
-          <li style={pcStyle} onMouseEnter={pcHover} onMouseLeave={pcHover} onClick={viewHome}>
+          <li className="link" onClick={viewHome}>
             Plant Central
           </li>
-          <li style={snStyle} onMouseEnter={snHover} onMouseLeave={snHover} onClick={viewShop} >Shop Now</li>
+          <li className="link" onClick={viewShop}>
+            Shop Now
+          </li>
+          <li className="link" onClick={viewBasket}>
+            Basket {basket.length > 0 ? basket.length : ""}
+          </li>
         </ul>
       </section>
-
     </>
   );
 };

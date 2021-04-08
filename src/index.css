@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.link {
+  padding: 10px;
+  color: blue;
+}
+
+.link:hover {
+  padding: 10px;
+  color: orange;
+  cursor: pointer;
+}

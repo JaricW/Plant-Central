@@ -3,7 +3,8 @@ import { GlobalContext } from "../Context/GlobalState";
 
 
 const PageView = () => {
-  const [viewing, setViewing] = useContext(GlobalContext);
+  const {view} = useContext(GlobalContext)
+  const [viewing, setViewing] = view;
 
   return <>{viewing}</>;
 };

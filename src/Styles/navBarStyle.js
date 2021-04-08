@@ -8,17 +8,8 @@ const ulStyle = {
   margin: 0,
 };
 
-const liStyle = {
-  padding: "10px",
-  color: "blue",
-};
 
-const liHoverStyle = {
-  padding: "10px",
-  color: "red",
-  cursor: "pointer",
-};
 
-const NavBarStyles = { ulStyle, liStyle, liHoverStyle };
+const NavBarStyles = { ulStyle };
 
 export default NavBarStyles;

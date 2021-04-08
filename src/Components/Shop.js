@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { GlobalContext } from "../Context/GlobalState";
 
 const Shop = () => {
   const [plants, setPlants] = useState([]);
+  const { cart } = useContext(GlobalContext);
+  const [basket, setBasket] = cart;
 
   useEffect(() => {
     fetch("data.json")
@@ -12,22 +15,30 @@ const Shop = () => {
       .catch((error) => console.log(error));
   }, []);
 
+
+  const addToCart = (plants) => {
+    setBasket([...basket, {...plants}]);
+  };
+
   const sortPriceLow = () => {
-    setPlants([...plants].sort(function (a, b) {
+    setPlants(
+      [...plants].sort(function (a, b) {
         return a.price - b.price;
-      }))
-  }
+      })
+    );
+  };
 
   const sortPriceHigh = () => {
-    setPlants([...plants].sort(function (a, b) {
+    setPlants(
+      [...plants].sort(function (a, b) {
         return b.price - a.price;
-      }))
-  }
+      })
+    );
+  };
 
   const sortName = () => {
-    setPlants([...plants].sort((a, b) => (a.name > b.name) ? 1 : -1))
-    console.log(plants)
-  }
+    setPlants([...plants].sort((a, b) => (a.name > b.name ? 1 : -1)));
+  };
 
   const plantDisplay = (plants) => (
     <div
@@ -43,14 +54,14 @@ const Shop = () => {
       <img src={plants.img} style={{ maxHeight: "30%" }} />
       <p>{plants.name}</p>
       <p>£{plants.price}</p>
-      <button>Add to Cart</button>
+      <button onClick={() => addToCart(plants)}>Add to Cart</button>
     </div>
   );
 
   return (
     <>
-    <section style={{display: "flex"}}>
-      <h1>Sort by</h1>
+      <section style={{ display: "flex" }}>
+        <h1>Sort by</h1>
         <button onClick={sortPriceLow}>Low Price</button>
         <button onClick={sortPriceHigh}>High Price</button>
         <button onClick={sortName}>Name</button>
@@ -64,6 +75,7 @@ const Shop = () => {
           height: "100vh",
           marginLeft: "5%",
           marginRight: "5%",
+          overflow: "scroll"
         }}
       >
         {plants.map(plantDisplay)}
