@@ -3,12 +3,10 @@ const ulStyle = {
   display: "flex",
   alignItems: "center",
   gap: "20%",
-  backgroundColor: "green",
+  backgroundColor: "#424341",
   height: "10vh",
   margin: 0,
 };
-
-
 
 const NavBarStyles = { ulStyle };
 

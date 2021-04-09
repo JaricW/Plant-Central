@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../Context/GlobalState";
-
 const Basket = () => {
   const { cart } = useContext(GlobalContext);
   const [basket, setBasket] = cart;
@@ -26,6 +25,7 @@ const Basket = () => {
   }
 
   return (
+    <>
     <section style={{height: "80vh", overflow: "scroll"}}>
         <div style={{display: "flex", gap: "30px"}}>
       <h1>Your Basket</h1>
@@ -35,6 +35,7 @@ const Basket = () => {
       {basket.map(basketView)}
       
     </section>
+    </>
   );
 };
 

@@ -1,9 +1,10 @@
 import React from 'react';
+import footerStyle from '../Styles/footerStyle'
 
 const Footer = () => {
     return(
-        <div style={{display: "flex", justifyContent: "center", backgroundColor: "green", height: "10vh"}}>
-            <h2>Plant Central</h2>
+        <div style={footerStyle}>
+            <h3>Plant Central</h3>
         </div>
     )
 }

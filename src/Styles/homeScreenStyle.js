@@ -5,7 +5,7 @@ const h1Style = {
 const homeScreenLayOut = {
   display: "grid",
   gridTemplateColumns: "50% 50%",
-  gridTemplateRows: "50vh 50vh 50vh",
+  gridTemplateRows: "50vh 50vh",
   backgroundColor: "#F0FFF0",
 };
 
@@ -31,8 +31,7 @@ const imgStyle = {
 };
 
 const quoteStyle = {
-  gridColumnStart: 1,
-  gridColumnEnd: 3,
+
   margin: "5%",
   display: "flex",
   textAlign: "center",

@@ -10,6 +10,8 @@ const NavBar = () => {
   const [viewing, setViewing] = view;
   const [basket, setBasket] = cart;
 
+  const {ulStyle} = NavBarStyles;
+
   const viewHome = () => setViewing(<HomeScreen />);
   const viewShop = () => setViewing(<Shop />);
   const viewBasket = () => setViewing(<Basket />);
@@ -17,7 +19,7 @@ const NavBar = () => {
   return (
     <>
       <section>
-        <ul style={NavBarStyles.ulStyle}>
+        <ul style={ulStyle}>
           <li className="link" onClick={viewHome}>
             Plant Central
           </li>
@@ -25,7 +27,7 @@ const NavBar = () => {
             Shop Now
           </li>
           <li className="link" onClick={viewBasket}>
-            Basket {basket.length > 0 ? basket.length : ""}
+            Basket {basket.length > 0 ? `(${basket.length})` : ""}
           </li>
         </ul>
       </section>
