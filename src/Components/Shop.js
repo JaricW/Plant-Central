@@ -1,10 +1,25 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { GlobalContext } from "../Context/GlobalState";
+import SortProducts from "./SortProducts";
+import shopStyle from "../Styles/shopStyle";
 
 const Shop = () => {
-  const [plants, setPlants] = useState([]);
-  const { cart } = useContext(GlobalContext);
+  const { cart, products, view } = useContext(GlobalContext);
+  const [plants, setPlants] = products;
   const [basket, setBasket] = cart;
+  const [viewing, setViewing] = view;
+
+  const {
+    card,
+    imgStyle,
+    nameStyle,
+    descStyle,
+    priceStyle,
+    buttonStyle,
+    itemAdded,
+  } = shopStyle;
+
+  const [showMessage, setShowMessage] = useState([]);
 
   useEffect(() => {
     fetch("data.json")
@@ -15,70 +30,54 @@ const Shop = () => {
       .catch((error) => console.log(error));
   }, []);
 
-
   const addToCart = (plants) => {
-    setBasket([...basket, {...plants}]);
+    setShowMessage(addToCartMessage)
+    setTimeout(removeMessage, 3000)
+    setBasket([...basket, { ...plants }]);
   };
 
-  const sortPriceLow = () => {
-    setPlants(
-      [...plants].sort(function (a, b) {
-        return a.price - b.price;
-      })
-    );
-  };
+  const addToCartMessage = (
+    <h4 id="itemAdded" style={itemAdded}>Item added to Basket</h4>
+  )
 
-  const sortPriceHigh = () => {
-    setPlants(
-      [...plants].sort(function (a, b) {
-        return b.price - a.price;
-      })
-    );
-  };
+  const removeMessage = () => {
+    setShowMessage([])
+  }
 
-  const sortName = () => {
-    setPlants([...plants].sort((a, b) => (a.name > b.name ? 1 : -1)));
-  };
 
   const plantDisplay = (plants) => (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
-        boxShadow: "2px 2px",
-        backgroundColor: "aquamarine",
-        padding: "10px",
-      }}
-    >
-      <img src={plants.img} style={{ maxHeight: "30%" }} />
-      <p>{plants.name}</p>
-      <p>£{plants.price}</p>
-      <button onClick={() => addToCart(plants)}>Add to Cart</button>
+    <div style={card}>
+      <img src={plants.img} style={imgStyle} />
+      <h3 style={nameStyle}> {plants.name}</h3>
+      <p style={descStyle}>{plants.description}</p>
+      <p style={priceStyle}>£{plants.price}</p>
+      <div className="button" style={buttonStyle} onClick={() => addToCart(plants)}>
+        Add to Cart
+      </div>
     </div>
   );
 
   return (
     <>
-      <section style={{ display: "flex" }}>
-        <h1>Sort by</h1>
-        <button onClick={sortPriceLow}>Low Price</button>
-        <button onClick={sortPriceHigh}>High Price</button>
-        <button onClick={sortName}>Name</button>
-      </section>
+      <SortProducts />
+
       <section
         style={{
           display: "grid",
-          gridTemplateColumns: "30% 30% 30%",
-          gap: "5%",
-          gridTemplateRows: "40% 40% 40% 40%",
-          height: "100vh",
-          marginLeft: "5%",
-          marginRight: "5%",
-          overflow: "scroll"
+          gridTemplateColumns: "25% 25% 25%",
+          columnGap: "12.5%",
+          rowGap: "5%",
+          gridTemplateRows: "50vh 50vh 50vh 50vh",
+          marginLeft: "10%",
+          marginRight: "10%",
+          marginBottom: "35vh"
+          
         }}
       >
         {plants.map(plantDisplay)}
+        <div>
+          {showMessage}
+        </div>
       </section>
     </>
   );

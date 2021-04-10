@@ -13,7 +13,6 @@ const HomeScreen = () => {
     homeScreenLayOut,
     imgContainerStyle,
     imgStyle,
-    quoteStyle,
   } = homeScreenStyle;
   const goToShop = () => setViewing(<Shop />);
 
