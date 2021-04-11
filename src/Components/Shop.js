@@ -3,11 +3,11 @@ import { GlobalContext } from "../Context/GlobalState";
 import SortProducts from "./SortProducts";
 import shopStyle from "../Styles/shopStyle";
 
+
 const Shop = () => {
   const { cart, products, view } = useContext(GlobalContext);
   const [plants, setPlants] = products;
   const [basket, setBasket] = cart;
-  const [viewing, setViewing] = view;
 
   const {
     card,
@@ -62,22 +62,12 @@ const Shop = () => {
       <SortProducts />
 
       <section
-        style={{
-          display: "grid",
-          gridTemplateColumns: "25% 25% 25%",
-          columnGap: "12.5%",
-          rowGap: "5%",
-          gridTemplateRows: "50vh 50vh 50vh 50vh",
-          marginLeft: "10%",
-          marginRight: "10%",
-          marginBottom: "35vh"
-          
-        }}
+        className="sLayout"  
       >
         {plants.map(plantDisplay)}
-        <div>
+       
           {showMessage}
-        </div>
+        
       </section>
     </>
   );

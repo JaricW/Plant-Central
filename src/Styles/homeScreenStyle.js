@@ -2,13 +2,6 @@ const h1Style = {
   textAlign: "center",
 };
 
-const homeScreenLayOut = {
-  display: "grid",
-  gridTemplateColumns: "50% 50%",
-  gridTemplateRows: "50vh 50vh",
-  backgroundColor: "#F0FFF0",
-};
-
 const divStyle = {
   margin: "5%",
   display: "flex",
@@ -38,11 +31,11 @@ const quoteStyle = {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
+  backgroundColor: "#F5F5DC",
 };
 
 const homeScreenStyle = {
   h1Style,
-  homeScreenLayOut,
   imgContainerStyle,
   imgStyle,
   divStyle,

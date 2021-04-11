@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import homeScreenStyle from "../Styles/homeScreenStyle";
 
 const Quotes = () => {
-   const {quoteStyle, divStyle} = homeScreenStyle;
+   const {quoteStyle} = homeScreenStyle;
 
     const firstQuote = <div style={quoteStyle}>
     <h2>

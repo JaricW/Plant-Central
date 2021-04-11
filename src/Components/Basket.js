@@ -1,30 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../Context/GlobalState";
+import basketStyle from "../Styles/basketStyle"
+import StripeAppTest from "../Stripe/Card-Minimal"
+
 const Basket = () => {
-  const { cart } = useContext(GlobalContext);
+  const { cart, view } = useContext(GlobalContext);
   const [basket, setBasket] = cart;
+  const [viewing, setViewing] = view;
   const [totalCost, setTotalCost] = useState(0);
+
+  const {itemStyle, divStyle, imgStyle, buttonStyle, titleHolderStyle, itemHolderStyle, costHolderStyle, buttonHolderStyle} = basketStyle;
 
   const basketView = (plants) => (
     <div
-      style={{
-        display: "flex",
-        width: "60%",
-        gap: "2%",
-        padding: "10px",
-        alignItems: "center",
-        justifyContent: "space-around",
-        backgroundColor: "white",
-        border: "1px solid",
-        height: "8vh",
-        
-      }}
+      style={itemStyle}
     >
-      <div style={{width: "100px"}}><h3>{plants.name}</h3></div>
-      <img style={{maxHeight: "100%"}} src={plants.img}/>
+      <div style={divStyle}><h3>{plants.name}</h3></div>
+      <img style={imgStyle} alt="img of plant" src={plants.img}/>
       <p>£{plants.price}</p>
       <p>{plants.number}</p>
-      <div className="button-secondary" style={{padding: "5px", borderRadius: "5px"}} onClick={() => removeFromCart(plants)}>Remove</div>
+      <div className="button-secondary" style={buttonStyle} onClick={() => removeFromCart(plants)}>Remove</div>
     </div>
   );
 
@@ -38,19 +33,23 @@ const Basket = () => {
     setBasket(basket.filter((plants) => plants !== plantsToRemove));
   };
 
+  const payNow = () => {
+    setViewing(<StripeAppTest />)
+  }
+
   return (
     <>
-      <section style={{ height: "80vh", overflow: "scroll" }}>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
+      <section >
+        <div style={titleHolderStyle}>
           <h1>Your Basket</h1>
-          <div style={{display: "flex", gap: "10px"}}>
+          <div style={costHolderStyle}>
           <h2>Total Cost: £{totalCost}</h2>
-          <div style={{display: "flex", alignItems: "center"}}>
-          <div className="button">Pay Now</div>
+          <div style={buttonHolderStyle}>
+          <div className="button" onClick={payNow}>Pay Now</div>
           </div>
           </div> 
         </div>
-        <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+        <div style={itemHolderStyle}>
         {basket.map(basketView)}
         </div>
       </section>

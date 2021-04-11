@@ -4,13 +4,13 @@ import homeScreenStyle from "../Styles/homeScreenStyle";
 import Shop from "./Shop";
 import Quotes from "./Quotes";
 
+
 const HomeScreen = () => {
   const { view } = useContext(GlobalContext);
   const [viewing, setViewing] = view;
   const {
     divStyle,
     h1Style,
-    homeScreenLayOut,
     imgContainerStyle,
     imgStyle,
   } = homeScreenStyle;
@@ -18,7 +18,7 @@ const HomeScreen = () => {
 
   return (
     <>
-      <section style={homeScreenLayOut}>
+      <section className="hsLayout">
         <div style={divStyle}>
           <h2 style={h1Style}>
             Indoor plants don’t just look good – they can make us feel good,
@@ -48,11 +48,11 @@ const HomeScreen = () => {
           </h2>
           <div className="button" onClick={goToShop}>Buy Plants</div>
         </div>
-
-        <div style={{ gridColumnStart: 1, gridColumnEnd: 3 }}>
+        </section>
+        <div>
           <Quotes />
         </div>
-      </section>
+      
     </>
   );
 };
