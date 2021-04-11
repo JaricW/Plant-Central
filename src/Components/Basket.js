@@ -4,10 +4,10 @@ import basketStyle from "../Styles/basketStyle"
 import StripeAppTest from "../Stripe/Card-Minimal"
 
 const Basket = () => {
-  const { cart, view } = useContext(GlobalContext);
+  const { cart, view, cost } = useContext(GlobalContext);
   const [basket, setBasket] = cart;
   const [viewing, setViewing] = view;
-  const [totalCost, setTotalCost] = useState(0);
+  const [totalCost, setTotalCost] = cost;
 
   const {itemStyle, divStyle, imgStyle, buttonStyle, titleHolderStyle, itemHolderStyle, costHolderStyle, buttonHolderStyle} = basketStyle;
 
