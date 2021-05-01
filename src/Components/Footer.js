@@ -1,14 +1,11 @@
-import React from 'react';
-import footerStyle from '../Styles/footerStyle'
-
-const {divStyle, fontStyle} = footerStyle;
+import React from "react";
 
 const Footer = () => {
-    return(
-        <div style={divStyle}>
-            <h3 style={fontStyle}>Plant Central</h3>
-        </div>
-    )
-}
+  return (
+    <div className="flex justify-center items-center bg-gray-900 text-lightGreen h-12 w-full fixed bottom-0">
+      <h3 className="font-RocknRoll">Plant Central</h3>
+    </div>
+  );
+};
 
 export default Footer;

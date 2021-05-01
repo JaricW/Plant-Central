@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Plant Central
+Plant Central is a website designed to sell plants online.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
+* [General info](#general-info)
+* [Screenshots](#screenshots)
+* [Technologies](#technologies)
+* [Website](#website)
+* [Features](#features)
+* [Status](#status)
+* [Inspiration](#inspiration)
+* [Contact](#contact)
 
-## Available Scripts
+## General info
+Plant central has a home page where you can learn more about the website, a shop view where you can view (and sort by price) all the available plants, and also a basket view where you can view any products you have added to the basket and enter your billing information.
 
-In the project directory, you can run:
 
-### `npm start`
+## Technologies
+Plant Central is built with:
+HTML5
+Tailwind CSS
+React.js
+Hosted on netlify
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Website
+View the full website here - https://plant-central.netlify.app/
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Code Examples
+  const plantDisplay = (plants) => (
+    <div className="flex items-center justify-between flex-col p-2 text-center bg-white border-2 border-black h-96 ">
+      <img src={plants.img} className="max-w-full max-h-40 " />
+      <h3 className="text-lg"> {plants.name}</h3>
+      <p className="text-sm">{plants.description}</p>
+      <p className="italic">£{plants.price}</p>
+      <button
+        className="text-white bg-Green rounded-lg p-2 hover:bg-white border-2 border-current hover:text-Green cursor-pointer"
+        onClick={() => addToCart(plants)}
+      >
+        Add to Cart
+      </button>
+    </div>
+  );
 
-### `npm test`
+## Features
+Current features:
+* 14 unique plants
+* Sort plants by price
+* Connected to Stripe API to quickly enter saved card information
+* 3 seperate 'customer' quotes, one of which is randomly displayed on the home page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To-do list:
+* Increase to 50 different plants
+* Add more search/sort functionality (ie by name, size, popularity)
+* Fully connect Stripe API
+* Replace JSON file with a back-end.
 
-### `npm run build`
+## Status
+The initial phase of the project is working and completed.
+The next phase is currently being planned out, and will start by adding many more plants to the website.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Inspiration
+I chose to start this project to learn more about e-commerce websites and how to create them.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact
+Created by Jaric Woodhead, feel free to contact me via email jaric_woodhead@msn.com.

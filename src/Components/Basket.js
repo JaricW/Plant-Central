@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../Context/GlobalState";
-import basketStyle from "../Styles/basketStyle"
-import StripeAppTest from "../Stripe/Card-Minimal"
+import StripeAppTest from "../Stripe/Card-Minimal";
+import Footer from "../Components/Footer";
 
 const Basket = () => {
   const { cart, view, cost } = useContext(GlobalContext);
@@ -9,17 +9,20 @@ const Basket = () => {
   const [viewing, setViewing] = view;
   const [totalCost, setTotalCost] = cost;
 
-  const {itemStyle, divStyle, imgStyle, buttonStyle, titleHolderStyle, itemHolderStyle, costHolderStyle, buttonHolderStyle} = basketStyle;
-
   const basketView = (plants) => (
-    <div
-      style={itemStyle}
-    >
-      <div style={divStyle}><h3>{plants.name}</h3></div>
-      <img style={imgStyle} alt="img of plant" src={plants.img}/>
+    <div className="flex h-16 w-5/6 p-2 items-center justify-around border-2 bg-white">
+      <div className="w-12 text-center">
+        <h3>{plants.name}</h3>
+      </div>
+      <img className="max-h-full" alt="img of plant" src={plants.img} />
       <p>£{plants.price}</p>
       <p>{plants.number}</p>
-      <div className="button-secondary" style={buttonStyle} onClick={() => removeFromCart(plants)}>Remove</div>
+      <button
+        className="text-white bg-yellow-700 rounded-lg p-2 hover:bg-white border-2 border-current hover:text-yellow-700 cursor-pointer"
+        onClick={() => removeFromCart(plants)}
+      >
+        Remove
+      </button>
     </div>
   );
 
@@ -34,24 +37,29 @@ const Basket = () => {
   };
 
   const payNow = () => {
-    setViewing(<StripeAppTest />)
-  }
+    setViewing(<StripeAppTest />);
+  };
 
   return (
     <>
-      <section >
-        <div style={titleHolderStyle}>
-          <h1>Your Basket</h1>
-          <div style={costHolderStyle}>
-          <h2>Total Cost: £{totalCost}</h2>
-          <div style={buttonHolderStyle}>
-          <div className="button" onClick={payNow}>Pay Now</div>
+      <section className="h-screen">
+        <div className="flex flex-col items-center justify-center p-2 pt-14">
+          <h1 className="text-3xl">Your Basket</h1>
+          <div className="flex items-center gap-2 p-2">
+            <h2 className="text-lg">Total Cost: £{totalCost}</h2>
+
+            <button
+              className="text-white bg-Green rounded-lg p-2 hover:bg-white border-2 border-current hover:text-Green cursor-pointer"
+              onClick={payNow}
+            >
+              Pay Now
+            </button>
           </div>
-          </div> 
         </div>
-        <div style={itemHolderStyle}>
-        {basket.map(basketView)}
+        <div className="flex flex-col items-center h-3/6 overflow-y-auto">
+          {basket.map(basketView)}
         </div>
+        <Footer />
       </section>
     </>
   );

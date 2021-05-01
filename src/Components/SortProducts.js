@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../Context/GlobalState";
-import sortProductsStyle from "../Styles/sortProductsStyle";
 
 const SortProducts = () => {
   const { products } = useContext(GlobalContext);
   const [plants, setPlants] = products;
 
-  const {buttonStyle, buttonHolderStyle, layoutStyle} = sortProductsStyle;
 
   const sortPriceLow = () => {
     setPlants(
@@ -25,11 +23,21 @@ const SortProducts = () => {
   };
 
   return (
-    <section style={layoutStyle}>
-      <h1>Sort by</h1>
-      <div style={buttonHolderStyle}>
-      <div className="button-secondary" style={buttonStyle} onClick={sortPriceLow}>Price (low to high)</div>
-      <div className="button-secondary" style={buttonStyle} onClick={sortPriceHigh}>Price (high to low)</div>
+    <section className="pt-12 p-2 flex flex-col items-center">
+      <h1 className="text-3xl">Sort by</h1>
+      <div className="flex p-4 gap-2">
+        <button
+          className="text-white bg-blue-500 rounded-lg p-2 hover:bg-white border-2 border-current hover:text-blue-500 cursor-pointer"
+          onClick={sortPriceLow}
+        >
+          Price (low to high)
+        </button>
+        <button
+          className="text-white bg-blue-500 rounded-lg p-2 hover:bg-white border-2 border-current hover:text-blue-500 cursor-pointer"
+          onClick={sortPriceHigh}
+        >
+          Price (high to low)
+        </button>
       </div>
     </section>
   );
